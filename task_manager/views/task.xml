@@ -1,0 +1,110 @@
+<odoo>
+    <data>
+        <!--  list view  -->
+
+
+        <record model="ir.ui.view" id="task_list_view">
+            <field name="name">task_list</field>
+            <field name="model">task</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="deadline"/>
+                    <field name="status"/>
+
+                </tree>
+            </field>
+        </record>
+        <!--          from view   -->
+        <record model="ir.ui.view" id="task_form_view">
+            <field name="name">task_form</field>
+            <field name="model">task</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="description"/>
+                            </group>
+                            <group>
+                                <field name="deadline"/>
+                                <field name="status"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!--        kanban view -->
+
+
+        <record id="task_kanban_view" model="ir.ui.view">
+            <field name="name">Task Manager</field>
+            <field name="model">task</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile" sample="1">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="deadline"/>
+                    <field name="status"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="name"/>
+                                    </strong>
+                                    <br/>
+                                    <field name="description"/>
+                                    <br/>
+                                    <field name="deadline"/><br/>
+                                    <field name="remaining_days"/><span style="font-weight:bold"> Days Remaining</span>
+                                    <br/>
+                                    <field name="status"/>
+                                    <br/>
+
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <!--        search-->
+        <record model="ir.ui.view" id="task_manager_search_view">
+            <field name="name">task_manager_search</field>
+            <field name="model">task</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter string="Completed" name="completed" domain="[('status', '=', 'completed')]"/>
+
+                </search>
+            </field>
+        </record>
+
+        <!--        action   -->
+        <record model="ir.actions.act_window" id="task_manager.action_window">
+            <field name="name">Task Management</field>
+            <field name="res_model">task</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{'search_default_completed': 1}</field>
+        </record>
+        <!-- Top menu item -->
+        <menuitem name="Task Management" id="task_root"/>
+
+        <!-- menu categories -->
+        <menuitem name="Task Management" id="task_sub_menu" parent="task_root"
+                  action="task_manager.action_window"/>
+    </data>
+</odoo>
+
+
+
+
+
