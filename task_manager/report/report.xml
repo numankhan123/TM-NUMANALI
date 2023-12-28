@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="action_report_task" model="ir.actions.report">
+        <field name="name">Task Report</field>
+        <field name="model">task.wiz</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">task_manager.report_task</field>
+        <field name="report_file">task_manager.report_task</field>
+    </record>
+
+
+
+
+    </data>
+</odoo>

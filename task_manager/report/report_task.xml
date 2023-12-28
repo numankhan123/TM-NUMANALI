@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <template id="task_manager.report_task">
+            <!--            <t t-foreach="tasks" t-as="doc">-->
+            <t t-call="web.basic_layout">
+                <style>
+                    .table{
+                    font-size:10px;
+                    }
+
+                </style>
+                <div>
+                    <center>All Tasks</center>
+                </div>
+
+                <table class="table table-bordered mt-2" style="font-size:16px;">
+                    <thead style="text-align: center;">
+                        <tr>
+                            <th>S.No</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Deadline</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <t t-foreach="tasks" t-as="rec">
+                        <tbody style="text-align: center;">
+                            <tr>
+
+                                <td style="text-align: center;">
+                                    <span t-esc="rec_index+1"/>
+                                </td>
+                                <td style="text-align: center;">
+                                    <span t-esc="rec.name"/>
+                                </td>
+                                <td style="text-align: center;">
+                                    <span t-esc="rec.description"/>
+                                </td>
+                                <td style="text-align: center;">
+                                    <span t-esc="rec.deadline"/>
+                                </td>
+                                <td>
+                                    <span t-esc="rec.status"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </t>
+                </table>
+
+            </t>
+        </template>
+    </data>
+</odoo>

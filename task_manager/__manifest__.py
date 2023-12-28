@@ -25,6 +25,9 @@
     'data': [
         'security/ir.model.access.csv',
         'views/task.xml',
+        'wizard/task_wiz.xml',
+        'report/report.xml',
+        'report/report_task.xml',
 
         # 'views/templates.xml',
 

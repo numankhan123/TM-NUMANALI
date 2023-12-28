@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="task_wizard">
+            <field name="name">task.wiz.form</field>
+            <field name="model">task.wiz</field>
+            <field name="arch" type="xml">
+                <form string="Task Report Wizard">
+                    <group>
+                        <group>
+                       </group>
+                    </group>
+                    <footer>
+                        <button name="print_report" string="Print All Task Report" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_task_report_wizard" model="ir.actions.act_window">
+            <field name="name">Task Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">task.wiz</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <menuitem id="menu_task_report" name="Task Report"
+                  parent="task_root" action="action_task_report_wizard"
+        />
+    </data>
+</odoo>
