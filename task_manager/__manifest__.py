@@ -24,11 +24,19 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        ',
         'views/task.xml',
+
         # 'views/templates.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
+    'assets': {
+        'web.assets_common': [
+            'task_manager/static/css/kanban_ribbon_style.css'
+        ],
+    },
 }
