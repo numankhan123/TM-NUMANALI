@@ -24,13 +24,13 @@
                 <form>
                     <header>
                         <field name="status" widget="statusbar" statusbar_visible="inprogress,completed"/>
-                        <button name="task_completed" string="Completed" states="inprogress" type="object"
+                        <button name="task_completed" string="Completed" type="object"
                                 class="oe_highlight"
-                                attrs="{'invisible' : [('status' ,'=' ,'completed')]}"/>
+                                invisible="status in ['completed']"/>
                     </header>
                     <sheet>
                         <widget name="web_ribbon" title="Completed" bg_color="bg-success"
-                                attrs="{'invisible': [('status', '=', 'inprogress')]}"/>
+                                invisible="status not in ['completed']"/>
                         <group>
                             <group>
                                 <field name="name"/>
